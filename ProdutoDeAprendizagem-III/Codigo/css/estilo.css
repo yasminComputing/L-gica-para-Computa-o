@@ -1,0 +1,313 @@
+/* FUNDO DA PÁGINA */
+body {
+    margin: 0;
+    padding: 0;
+    background: radial-gradient(circle at 85% 15%, #162942 0%, #060a12 80%);
+    color: #fff;
+    font-family: 'Cinzel', serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    overflow-x: hidden;
+    position: relative;
+}
+
+/* LUA COM BRILHO SUAVE */
+body::before {
+    content: '';
+    position: fixed;
+    top: 5%;
+    right: 8%;
+    width: 60px;
+    height: 60px;
+    background: #fffdf0;
+    border-radius: 50%;
+    box-shadow: 0 0 40px 15px rgba(255, 253, 240, 0.3);
+    pointer-events: none;
+}
+
+/* CONTAINER */
+.container {
+    text-align: center;
+    max-width: 700px;
+    width: 90%;
+    padding: 40px 30px;
+    background: rgba(8, 15, 24, 0.75);
+    border: 2px solid #a37c27;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(5px);
+    z-index: 1;
+    box-sizing: border-box;
+}
+
+/* ÍCONE DE CAVEIRA */
+.pirate-flag {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+    animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-8px); }
+}
+
+/* TÍTULO PRINCIPAL */
+.main-title {
+    font-family: 'Pirata One', cursive;
+    font-size: 4.5rem;
+    color: #f1d279;
+    margin: 0;
+    letter-spacing: 3px;
+    text-shadow: 3px 3px 0px #4a3407, 0 0 20px rgba(241, 210, 121, 0.4);
+}
+
+/* SUBTÍTULO */
+.subtitle {
+    font-family: 'Pirata One', cursive;
+    font-size: 2.2rem;
+    color: #d1b46a;
+    margin: 10px 0 5px 0;
+    letter-spacing: 1px;
+}
+
+/* DESCRIÇÃO */
+.description {
+    font-size: 1.1rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: #a4b3c6;
+    margin: 5px 0;
+}
+
+/* DIVISORES */
+.divider {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 20px auto;
+    width: 60%;
+}
+.divider::before {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(to right, transparent, #cfa745);
+}
+.divider::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(to left, transparent, #cfa745);
+}
+
+.divider-dot {
+    width: 8px;
+    height: 8px;
+    background-color: #cfa745;
+    transform: rotate(45deg);
+    margin: 0 10px;
+}
+
+/* BOTÃO JOGAR */
+.btn-adventure {
+    margin-top: 30px;
+    background: linear-gradient(to bottom, #a37c27, #63460e);
+    border: 2px solid #ffd875;
+    padding: 15px 40px;
+    color: #0f0b02;
+    font-family: 'Pirata One', cursive;
+    font-size: 1.8rem;
+    letter-spacing: 1px;
+    cursor: pointer;
+    border-radius: 6px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    transition: all 0.3s ease;
+    box-shadow: 0 6px 15px rgba(0,0,0,0.4);
+}
+
+.btn-adventure svg {
+    width: 28px;
+    height: 28px;
+    fill: #0f0b02;
+    transition: transform 0.3s ease;
+}
+
+.btn-adventure:hover {
+    background: linear-gradient(to bottom, #ffd875, #a37c27);
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(241, 210, 121, 0.3);
+}
+
+.btn-adventure:hover svg {
+    transform: scale(1.1);
+}
+
+.btn-adventure:active {
+    transform: translateY(-1px);
+}
+
+/* PERGUNTA */
+.pergunta {
+    margin: 20px auto;
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: #e2e8f0;
+    background: rgba(0, 0, 0, 0.3);
+    padding: 20px;
+    border-radius: 8px;
+    border-left: 4px solid #cfa745;
+    text-align: left;
+}
+
+/* ALTERNATIVAS */
+#alternativas {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 20px;
+}
+
+#alternativas button {
+    background: #192330;
+    color: #f5f5f5;
+    border: 1px solid #4a5a70;
+    padding: 14px 20px;
+    font-size: 1rem;
+    font-family: 'Cinzel', serif;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    text-align: left;
+}
+
+#alternativas button:hover {
+    background: #243346;
+    border-color: #cfa745;
+    color: #ffd875;
+    transform: translateX(5px);
+}
+
+#resultado {
+    margin-top: 20px;
+    font-size: 1.3rem;
+    font-family: 'Pirata One', cursive;
+    color: #f1d279;
+    letter-spacing: 1px;
+    min-height: 2rem;
+}
+
+/* STATUS DO PIRATA E BARRA DE VIDA */
+.pirate-status {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 20px;
+    background: rgba(0, 0, 0, 0.4);
+    padding: 15px;
+    border-radius: 10px;
+    border: 1px solid #4a5a70;
+}
+
+.pirate-avatar {
+    font-size: 3rem;
+    margin-bottom: 8px;
+}
+
+.health-bar-container {
+    width: 80%;
+    max-width: 300px;
+    height: 16px;
+    background-color: #221414;
+    border: 2px solid #cfa745;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.health-bar {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to right, #ff3333, #ff6666);
+    transition: width 0.4s ease-in-out, background 0.4s ease;
+}
+
+.health-text {
+    font-size: 0.9rem;
+    color: #d1b46a;
+    margin-top: 5px;
+    letter-spacing: 1px;
+}
+
+/* TELA DE TIMEOUT */
+#telaTimeout {
+    padding: 20px;
+    background: rgba(80, 0, 0, 0.3);
+    border-radius: 10px;
+    border: 1px solid #7a2020;
+}
+
+.timeout-msg {
+    color: #f4b0b0;
+    font-size: 1rem;
+    margin-bottom: 10px;
+}
+
+#contadorTempo {
+    font-family: 'Pirata One', cursive;
+    font-size: 3rem;
+    color: #f1d279;
+    letter-spacing: 4px;
+}
+
+.timeout-sub {
+    margin-top: 10px;
+    font-size: 0.85rem;
+    color: #a4b3c6;
+}
+/* CONTAINER ADICIONADO PARA ALINHAMENTO HORIZONTAL */
+.horizontal-container {
+    display: flex !important;
+    flex-direction: row !important;
+    justify-content: flex-start !important; /* Alinha a partir do início para a rolagem funcionar bem */
+    gap: 15px;
+    flex-wrap: nowrap !important; /* Força ficar um do lado do outro */
+    overflow-x: auto !important;  /* Força a barra de rolagem horizontal */
+    padding: 20px 10px;
+    margin-bottom: 20px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* Força os cards amarelos a manterem o tamanho correto na horizontal */
+.horizontal-card {
+    flex: 0 0 200px !important; /* Não deixa o card encolher de forma alguma */
+    margin: 0 !important;
+    box-sizing: border-box;
+}
+
+/* Alarga o container principal do jogo para que caibam mais cards na tela */
+#telaJogo {
+    max-width: 95% !important; /* Aumenta o espaço horizontal do jogo */
+    width: 900px !important;
+}
+
+/* Customização da barra de rolagem para ficar elegante e dourada no tema pirata */
+.horizontal-container::-webkit-scrollbar {
+    height: 8px;
+}
+.horizontal-container::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 4px;
+}
+.horizontal-container::-webkit-scrollbar-thumb {
+    background: #a37c27;
+    border-radius: 4px;
+}
+.horizontal-container::-webkit-scrollbar-thumb:hover {
+    background: #ffd875;
+}
